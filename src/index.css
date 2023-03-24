@@ -1,69 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font-family: 'Imperial Script', cursive; */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	--p-black-50: hsl(175, 7%, 33%);
+	--p-black-100: hsl(184, 11%, 28%);
+	--p-black-200: hsl(194, 13%, 20%);
+	--p-black-200-50: hsla(193, 14%, 20%, 0.5);
+	--p-brown-100: hsl(44, 21%, 90%);
+	--p-brown-100-90: hsl(44, 21%, 90%, 0.9);
+	--p-brown-200: hsl(27, 28%, 50%);
+	--p-brown-200-30: hsla(27, 28%, 50%, 0.3);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+	font: inherit;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+	font-family: "Inter", sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+@layer components {
+	.menu__link,
+	.menu-btn {
+		@apply flex items-center justify-between border-b cursor-pointer pb-2 hover:text-primary-brown-200 hover:border-b-primary-brown-200 transition-colors;
+	}
+	.menu__link.active {
+		@apply text-primary-brown-200 border-b-primary-brown-200;
+	}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+	.sidebar {
+		@apply bg-primary-black-200 w-0 h-full fixed top-0 left-0 overflow-hidden py-8 text-primary-brown-100 flex flex-col transition-all;
+	}
+	.sidebar.active {
+		@apply w-[250px];
+	}
 }
