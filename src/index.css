@@ -26,6 +26,10 @@ body {
 }
 
 @layer components {
+	.grid-flow {
+		@apply grid gap-6;
+	}
+
 	.menu__link,
 	.menu-btn {
 		@apply flex items-center justify-between border-b cursor-pointer pb-2 hover:text-primary-brown-200 hover:border-b-primary-brown-200 transition-colors;
