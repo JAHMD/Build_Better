@@ -8,11 +8,15 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+
+// pages
 import NotFound from "./pages/NotFound";
+import Tasks from "./pages/Tasks";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<App />}>
+			<Route index element={<Tasks />} />
 			<Route path="*" element={<NotFound />} />
 		</Route>
 	)
