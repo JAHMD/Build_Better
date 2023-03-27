@@ -5,7 +5,6 @@ module.exports = {
 		extend: {
 			container: {
 				center: true,
-				padding: "1rem",
 			},
 			fontFamily: {
 				imperialScript: ["Imperial Script", "cursive"],
@@ -20,6 +19,7 @@ module.exports = {
 					"brown-100-90": "hsl(44, 21%, 90%, 0.9)",
 					"brown-200": "hsl(27, 28%, 50%)",
 					"brown-200-30": "hsla(27, 28%, 50%, 0.3)",
+					header: "hsla(20,27%,85%,0.9)",
 				},
 			},
 		},

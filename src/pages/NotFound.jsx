@@ -1,8 +1,12 @@
 function NotFound() {
 	return (
-		<section className="h-full bg-primary-brown-100-90 p-8 rounded-md flex justify-center items-center flex-col">
-			<h2 className="text-4xl font-bold">Oops!</h2>
-			<p className="text-xl sm:text-2xl font-semibold mt-2">Page not found.</p>
+		<section className="section flex justify-center items-center flex-col">
+			<div className="bg-primary-brown-100-90 rounded-lg p-6 w-full h-full text-center">
+				<h2 className="text-4xl font-bold">Oops!</h2>
+				<p className="text-xl sm:text-2xl font-semibold mt-2">
+					Page not found.
+				</p>
+			</div>
 		</section>
 	);
 }

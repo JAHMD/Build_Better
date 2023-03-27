@@ -15,7 +15,7 @@ import Tasks from "./pages/Tasks";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<App />}>
+		<Route path="Build_Better/" element={<App />}>
 			<Route index element={<Tasks />} />
 			<Route path="*" element={<NotFound />} />
 		</Route>

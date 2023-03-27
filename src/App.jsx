@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 
 function App() {
 	return (
-		<div className="flex min-h-screen px-6 sm:px-10">
+		<div className="min-h-screen">
 			<img
 				src={bgImage}
 				alt="background image"
@@ -12,8 +12,7 @@ function App() {
 				aria-hidden="true"
 			/>
 			<Sidebar />
-			{/* h-[calc(100vh-104px)] sm:h-[calc(100vh-120px)]  */}
-			<main className="h-[calc(100vh-104px)] sm:h-[calc(100vh-120px)] xl:container mt-20 mb-6 sm:mb-10 p-6 md:p-8 transition-all text-primary-black-50 flex-1 bg-primary-brown-200-30 rounded-md">
+			<main className="container p-container mt-10 mb-6 sm:mb-10 text-primary-black-50 flex-1">
 				<h1 className="w-full text-center font-imperialScript text-5xl md:text-7xl fixed top-6 md:top-8 left-1/2 -translate-x-1/2 -z-[1]">
 					Build better
 				</h1>
