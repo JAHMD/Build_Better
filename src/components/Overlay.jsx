@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { useEffect, useRef, useState } from "react";
+import { MdClose } from "react-icons/md";
 
 function Overlay({ toggleOverlay, handleAddTask }) {
 	const inputRef = useRef(null);
@@ -34,8 +35,18 @@ function Overlay({ toggleOverlay, handleAddTask }) {
 	}
 
 	return (
-		<div className="absolute top-0 left-0 h-full w-full bg-primary-black-200/30 flex justify-center items-center">
-			<form className="card" onSubmit={handleTaskSubmit}>
+		<div className="p-4 absolute top-0 left-0 h-full w-full bg-primary-black-200/30 flex justify-center items-center">
+			<form
+				className="relative card w-80 max-w-full"
+				onSubmit={handleTaskSubmit}
+			>
+				<button
+					type="button"
+					className="absolute top-4 right-4 text-2xl"
+					onClick={toggleOverlay}
+				>
+					<MdClose />
+				</button>
 				<label htmlFor="task-input">Task:</label>
 				<input
 					ref={inputRef}

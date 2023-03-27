@@ -44,6 +44,9 @@ body {
 	.card {
 		@apply p-4 rounded-lg bg-primary-brown-100 flex flex-col gap-4;
 	}
+	.card .task-content {
+		@apply truncate cursor-pointer hover:bg-primary-brown-200-30 w-full py-1 px-2 rounded-lg transition-colors;
+	}
 
 	.section {
 		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md;
@@ -61,6 +64,6 @@ body {
 		@apply bg-primary-black-200 w-0 h-full fixed top-0 left-0 overflow-hidden py-8 text-primary-brown-100 flex flex-col transition-all;
 	}
 	.sidebar.active {
-		@apply w-[250px];
+		@apply w-[280px];
 	}
 }

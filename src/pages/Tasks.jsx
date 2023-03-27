@@ -4,24 +4,34 @@ import Overlay from "../components/Overlay";
 
 function Tasks() {
 	const [toggleNewTask, setToggleNewTask] = useState(false);
-	const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState(() => {
+		return JSON.parse(localStorage.getItem("tasks")) || [];
+	});
 	const tasksElements = tasks?.map((task) => (
-		<Card key={task.id} task={task} />
+		<Card key={task.id} task={task} deleteTask={handleDeleteTask} />
 	));
 
 	function handleToggleOverlay() {
 		setToggleNewTask((oldState) => !oldState);
 	}
 
-	function handleTasks(task) {
-		setTasks((prevTasks) => [...prevTasks, task]);
+	function handleAddTask(task) {
+		const updatedTasks = [task, ...tasks];
+		localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+		setTasks(updatedTasks);
+	}
+
+	function handleDeleteTask(id) {
+		const updatedTasks = tasks.filter((task) => task.id !== id);
+		localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+		setTasks(updatedTasks);
 	}
 
 	return (
 		<section className="section grid gap-6 items-start">
 			{toggleNewTask && (
 				<Overlay
-					handleAddTask={handleTasks}
+					handleAddTask={handleAddTask}
 					toggleOverlay={handleToggleOverlay}
 				/>
 			)}
@@ -34,7 +44,7 @@ function Tasks() {
 				</button>
 				<h2 className="text-2xl font-bold text-primary-black-100">Todo</h2>
 			</div>
-			<div className="tasks h-full overflow-y-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+			<div className="tasks h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 				{tasksElements}
 			</div>
 		</section>
@@ -42,17 +52,3 @@ function Tasks() {
 }
 
 export default Tasks;
-
-// useEffect(() => {
-// 	let leastGridOfTasks = Number.POSITIVE_INFINITY;
-// 	grids.map((grid, girdIndex) => {
-// 		if (grid.length < leastGridOfTasks) {
-// 			leastGridOfTasks = girdIndex;
-// 		}
-// 	});
-// 	setGrids((oldGrids) => {
-// 		return oldGrids.map((grid, idx) =>
-// 			idx === leastGridOfTasks ? [...grid, task] : grid
-// 		);
-// 	});
-// }, []);
