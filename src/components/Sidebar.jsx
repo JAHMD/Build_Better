@@ -32,7 +32,10 @@ function Sidebar() {
 	}, [asideRef]);
 
 	return (
-		<header ref={asideRef} className="container p-container sticky top-0 pt-2">
+		<header
+			ref={asideRef}
+			className="container p-container sticky top-0 pt-4 z-10"
+		>
 			<div className="rounded-lg py-3 px-4 bg-primary-header shadow-md">
 				<button
 					className="btn btn-primary text-xl"

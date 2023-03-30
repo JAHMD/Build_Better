@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 
 function NewTaskForm({ toggleOverlay, handleAddTask }) {
 	const inputRef = useRef(null);
+	const closeBtnRef = useRef(null);
 	const [newTask, setNewTask] = useState(() => {
 		return {
 			id: "",
@@ -21,7 +22,7 @@ function NewTaskForm({ toggleOverlay, handleAddTask }) {
 		e.preventDefault();
 		if (newTask.body) {
 			handleAddTask(newTask);
-			toggleOverlay();
+			closeBtnRef?.current?.click();
 		}
 	}
 	function handleChange({ target }) {
@@ -37,6 +38,7 @@ function NewTaskForm({ toggleOverlay, handleAddTask }) {
 	return (
 		<form className="form" onSubmit={handleTaskSubmit}>
 			<button
+				ref={closeBtnRef}
 				type="button"
 				className="absolute top-5 right-5 text-2xl"
 				id="new-task"

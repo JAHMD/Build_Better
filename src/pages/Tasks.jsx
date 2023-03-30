@@ -1,10 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Card from "../components/Card";
 import NewTaskForm from "../components/NewTaskForm";
 import Overlay from "../components/Overlay";
 import TaskContent from "../components/TaskContent";
 
 function Tasks() {
+	const tasksRef = useRef(null);
+	const sectionRef = useRef(null);
+	const [hasBottom, setHasBottom] = useState(false);
 	const [isTaskForm, setIsTaskForm] = useState(false);
 	const [isTaskCard, setIsTaskCard] = useState(false);
 	const [toggleOverlay, setToggleOverlay] = useState(false);
@@ -20,6 +23,16 @@ function Tasks() {
 			toggleOverlay={handleOverlay}
 		/>
 	));
+
+	useEffect(() => {
+		setHasBottom(false);
+		const tasksDivSize = tasksRef.current.getBoundingClientRect().height;
+		const sectionSize = sectionRef.current.getBoundingClientRect().height - 162;
+		if (tasksDivSize > sectionSize) {
+			setHasBottom(true);
+		}
+		console.log(tasksDivSize, sectionSize);
+	}, [tasks]);
 
 	function handleAddTask(task) {
 		const updatedTasks = [task, ...tasks];
@@ -45,7 +58,7 @@ function Tasks() {
 	}
 
 	return (
-		<section className="section grid gap-6 items-start">
+		<section ref={sectionRef} className="section grid gap-6 content-start">
 			{toggleOverlay && (
 				<Overlay>
 					{isTaskForm && (
@@ -72,9 +85,15 @@ function Tasks() {
 				</button>
 				<h2 className="text-2xl font-bold text-primary-black-100">Todo</h2>
 			</div>
-			<div className="tasks h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+			<div
+				ref={tasksRef}
+				className="h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 drop-shadow-lg rounded-lg"
+			>
 				{tasksElements}
 			</div>
+			{hasBottom && (
+				<span className="h-4 w-[calc(100%-48px)] md:w-[calc(100%-64px)] absolute left-6 md:left-8 bottom-6 md:bottom-8 bg-gradient-to-t from-primary-brown-200-30 to-transparent rounded-b-lg"></span>
+			)}
 		</section>
 	);
 }

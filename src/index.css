@@ -53,7 +53,7 @@ body {
 	}
 
 	.section {
-		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md;
+		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md relative;
 	}
 
 	.menu__link,
