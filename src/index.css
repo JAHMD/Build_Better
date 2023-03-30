@@ -48,6 +48,10 @@ body {
 		@apply truncate cursor-pointer hover:bg-primary-brown-200-30 w-full py-1 px-2 rounded-lg transition-colors;
 	}
 
+	.form {
+		@apply flex flex-col gap-4 p-5 relative w-80 max-w-full rounded-lg bg-primary-brown-100;
+	}
+
 	.section {
 		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md;
 	}

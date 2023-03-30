@@ -13,7 +13,10 @@ function App() {
 			/>
 			<Sidebar />
 			<main className="container p-container mt-10 mb-6 sm:mb-10 text-primary-black-50 flex-1">
-				<h1 className="w-full text-center font-imperialScript text-5xl md:text-7xl fixed top-6 md:top-8 left-1/2 -translate-x-1/2 -z-[1]">
+				<h1
+					className="w-full text-center font-imperialScript text-5xl md:text-7xl fixed top-6 md:top-8 left-1/2 -translate-x-1/2 -z-[1]"
+					aria-hidden="true"
+				>
 					Build better
 				</h1>
 				<Outlet />

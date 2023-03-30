@@ -1,24 +1,41 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Card from "../components/Card";
+import NewTaskForm from "../components/NewTaskForm";
 import Overlay from "../components/Overlay";
+import TaskContent from "../components/TaskContent";
 
 function Tasks() {
-	const [toggleNewTask, setToggleNewTask] = useState(false);
+	const [isTaskForm, setIsTaskForm] = useState(false);
+	const [isTaskCard, setIsTaskCard] = useState(false);
+	const [toggleOverlay, setToggleOverlay] = useState(false);
+	const clickedTaskRef = useRef(null);
 	const [tasks, setTasks] = useState(() => {
 		return JSON.parse(localStorage.getItem("tasks")) || [];
 	});
 	const tasksElements = tasks?.map((task) => (
-		<Card key={task.id} task={task} deleteTask={handleDeleteTask} />
+		<Card
+			key={task.id}
+			task={task}
+			deleteTask={handleDeleteTask}
+			toggleOverlay={handleOverlay}
+		/>
 	));
-
-	function handleToggleOverlay() {
-		setToggleNewTask((oldState) => !oldState);
-	}
 
 	function handleAddTask(task) {
 		const updatedTasks = [task, ...tasks];
 		localStorage.setItem("tasks", JSON.stringify(updatedTasks));
 		setTasks(updatedTasks);
+	}
+
+	function handleOverlay({ target }, task) {
+		clickedTaskRef.current = task;
+		const clickedElement = target.closest("#new-task");
+		if (clickedElement) {
+			setIsTaskForm((oldState) => !oldState);
+		} else {
+			setIsTaskCard((oldState) => !oldState);
+		}
+		setToggleOverlay((oldState) => !oldState);
 	}
 
 	function handleDeleteTask(id) {
@@ -29,16 +46,27 @@ function Tasks() {
 
 	return (
 		<section className="section grid gap-6 items-start">
-			{toggleNewTask && (
-				<Overlay
-					handleAddTask={handleAddTask}
-					toggleOverlay={handleToggleOverlay}
-				/>
+			{toggleOverlay && (
+				<Overlay>
+					{isTaskForm && (
+						<NewTaskForm
+							handleAddTask={handleAddTask}
+							toggleOverlay={handleOverlay}
+						/>
+					)}
+					{isTaskCard && (
+						<TaskContent
+							toggleOverlay={handleOverlay}
+							task={clickedTaskRef.current}
+						/>
+					)}
+				</Overlay>
 			)}
 			<div className="flex items-center justify-between bg-primary-brown-100 py-4 px-5 rounded-lg">
 				<button
 					className="btn btn-primary px-6"
-					onClick={() => setToggleNewTask((oldState) => !oldState)}
+					id="new-task"
+					onClick={handleOverlay}
 				>
 					New task
 				</button>

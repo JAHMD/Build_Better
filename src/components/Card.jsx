@@ -1,10 +1,16 @@
 import { MdDelete } from "react-icons/md";
 
-function Card({ task, deleteTask }) {
+function Card({ task, deleteTask, toggleOverlay }) {
 	return (
 		<article className="card">
 			<div className="flex justify-between items-center gap-2">
-				<p className="task-content">{task.body} </p>
+				<p
+					className="task-content"
+					id="card"
+					onClick={(e) => toggleOverlay(e, task)}
+				>
+					{task.body}
+				</p>
 				<button
 					className="btn btn-primary px-2"
 					onClick={() => deleteTask(task.id)}
