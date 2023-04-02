@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 // icons
 import { useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import {
-	MdAddTask,
-	MdEdit,
-	MdMoreTime,
-	MdOutlineCalculate,
-	MdSettings,
-} from "react-icons/md";
+import SidebarItems from "./SidebarItems";
 
 function Sidebar() {
 	const [toggleMenue, setToggleMenu] = useState(false);
@@ -32,52 +25,23 @@ function Sidebar() {
 	}, [asideRef]);
 
 	return (
-		<header
-			ref={asideRef}
-			className="container p-container sticky top-0 pt-4 z-10"
-		>
-			<div className="rounded-lg py-3 px-4 bg-primary-header shadow-md">
-				<button
-					className="btn btn-primary text-xl"
-					aria-label="menu button"
-					onClick={handleMenuClick}
-				>
-					<HiMenu />
-				</button>
-				<nav className={`sidebar ${toggleMenue ? "active" : ""}`}>
+		<header ref={asideRef} className="absolute left-6 top-6 z-10">
+			<button
+				className="btn btn-primary text-xl"
+				aria-label="menu button"
+				onClick={handleMenuClick}
+			>
+				<HiMenu />
+			</button>
+			{toggleMenue && (
+				<nav className="sidebar">
 					<button className="menu-btn mx-6" onClick={handleMenuClick}>
 						<h2>Menu</h2>
 						<HiX />
 					</button>
-					<ul className="mx-6 mt-24 grid gap-6">
-						<li>
-							<NavLink className="menu__link" to="/Build_Better/">
-								Tasks <MdAddTask />
-							</NavLink>
-						</li>
-						<li>
-							<NavLink className="menu__link" to="notes">
-								Notes <MdEdit />
-							</NavLink>
-						</li>
-						<li>
-							<NavLink className="menu__link" to="pomodoro">
-								Pomodoro <MdMoreTime />
-							</NavLink>
-						</li>
-						<li>
-							<NavLink className="menu__link" to="calculator">
-								Calculator <MdOutlineCalculate />
-							</NavLink>
-						</li>
-						<li>
-							<NavLink className="menu__link" to="settings">
-								Settings <MdSettings />
-							</NavLink>
-						</li>
-					</ul>
+					<SidebarItems />
 				</nav>
-			</div>
+			)}
 		</header>
 	);
 }

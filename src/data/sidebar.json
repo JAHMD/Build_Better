@@ -1,0 +1,28 @@
+[
+	{
+		"title": "Tasks",
+		"path": "/Build_Better/",
+		"iconIdx": 0,
+		"children": [{ "title": "Test", "path": "/Build_Better/", "iconIdx": 0 }]
+	},
+	{
+		"title": "Notes",
+		"path": "notes",
+		"iconIdx": 1
+	},
+	{
+		"title": "Pomodoro",
+		"path": "pomodoro",
+		"iconIdx": 2
+	},
+	{
+		"title": "Calculator",
+		"path": "calculator",
+		"iconIdx": 3
+	},
+	{
+		"title": "Settings",
+		"path": "settings",
+		"iconIdx": 4
+	}
+]

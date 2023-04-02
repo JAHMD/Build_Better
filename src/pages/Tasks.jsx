@@ -31,7 +31,6 @@ function Tasks() {
 		if (tasksDivSize > sectionSize) {
 			setHasBottom(true);
 		}
-		console.log(tasksDivSize, sectionSize);
 	}, [tasks]);
 
 	function handleAddTask(task) {
@@ -57,6 +56,14 @@ function Tasks() {
 		setTasks(updatedTasks);
 	}
 
+	function handleUpdateTask(updatedTask) {
+		const updatedTasks = tasks.map((task) =>
+			task.id === updatedTask.id ? updatedTask : task
+		);
+		localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+		setTasks(updatedTasks);
+	}
+
 	return (
 		<section ref={sectionRef} className="section grid gap-6 content-start">
 			{toggleOverlay && (
@@ -69,13 +76,14 @@ function Tasks() {
 					)}
 					{isTaskCard && (
 						<TaskContent
+							handleUpdateTask={handleUpdateTask}
 							toggleOverlay={handleOverlay}
 							task={clickedTaskRef.current}
 						/>
 					)}
 				</Overlay>
 			)}
-			<div className="flex items-center justify-between bg-primary-brown-100 py-4 px-5 rounded-lg">
+			<div className="flex items-center justify-between bg-primary-brown-100 py-4 px-5 rounded-lg drop-shadow-md">
 				<button
 					className="btn btn-primary px-6"
 					id="new-task"
@@ -87,7 +95,7 @@ function Tasks() {
 			</div>
 			<div
 				ref={tasksRef}
-				className="h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 drop-shadow-lg rounded-lg"
+				className="h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 drop-shadow-md rounded-lg"
 			>
 				{tasksElements}
 			</div>
