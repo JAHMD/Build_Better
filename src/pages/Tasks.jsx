@@ -57,9 +57,8 @@ function Tasks() {
 	}
 
 	function handleUpdateTask(updatedTask) {
-		const updatedTasks = tasks.map((task) =>
-			task.id === updatedTask.id ? updatedTask : task
-		);
+		const filteredTasks = tasks.filter((task) => task.id !== updatedTask.id);
+		const updatedTasks = [updatedTask, ...filteredTasks];
 		localStorage.setItem("tasks", JSON.stringify(updatedTasks));
 		setTasks(updatedTasks);
 	}
