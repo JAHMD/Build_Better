@@ -40,6 +40,9 @@ body {
 	.btn-primary {
 		@apply hover:bg-primary-black-100/90 text-primary-brown-100 bg-primary-black-100 shadow-lg font-semibold;
 	}
+	.btn.disabled {
+		@apply cursor-not-allowed bg-primary-black-100/80 hover:bg-primary-black-100/80;
+	}
 
 	.card {
 		@apply p-4 rounded-lg bg-primary-brown-100 flex flex-col gap-4;
@@ -53,7 +56,14 @@ body {
 	}
 
 	.section {
-		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md relative;
+		@apply rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md relative grid gap-6 content-start;
+	}
+
+	.section__heading {
+		@apply text-2xl font-bold text-primary-black-100;
+	}
+	.cards-container {
+		@apply h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 drop-shadow-md rounded-lg;
 	}
 
 	.menu__link,
@@ -65,6 +75,6 @@ body {
 	}
 
 	.sidebar {
-		@apply w-[280px] bg-primary-black-200 h-full fixed top-0 left-0 overflow-hidden py-8 text-primary-brown-100 flex flex-col transition-all;
+		@apply w-[280px] bg-primary-black-200 h-full fixed top-0 left-0 py-8 text-primary-brown-100 flex flex-col gap-16 transition-all overflow-auto shadow-md shadow-black/30;
 	}
 }

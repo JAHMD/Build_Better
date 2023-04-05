@@ -10,13 +10,15 @@ import App from "./App";
 import "./index.css";
 
 // pages
+import AllTasks from "./pages/AllTasks";
+import Done from "./pages/Done";
 import NotFound from "./pages/NotFound";
-import Tasks from "./pages/Tasks";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="Build_Better/" element={<App />}>
-			<Route index element={<Tasks />} />
+			<Route index element={<AllTasks />} />
+			<Route path="done" element={<Done />} />
 			<Route path="*" element={<NotFound />} />
 		</Route>
 	)

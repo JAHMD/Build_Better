@@ -1,6 +1,6 @@
 import { MdDelete } from "react-icons/md";
 
-function Card({ task, deleteTask, toggleOverlay }) {
+function Card({ task, deleteTask, toggleOverlay, handleCompletedTasks }) {
 	return (
 		<article className="card">
 			<div className="flex justify-between items-center gap-2">
@@ -20,8 +20,11 @@ function Card({ task, deleteTask, toggleOverlay }) {
 			</div>
 			<div className="flex items-center justify-between flex-wrap gap-3 pt-2 border-t border-primary-black-200">
 				<span className="inline-block text-xs">{task.time}</span>
-				<button className="btn w-full btn-primary text-sm font-semibold">
-					Done
+				<button
+					className="btn w-full btn-primary text-sm font-semibold"
+					onClick={() => handleCompletedTasks(task.id)}
+				>
+					{task.isDone ? "Uncomplete" : "Complete"}
 				</button>
 			</div>
 		</article>
