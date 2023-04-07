@@ -22,6 +22,19 @@ module.exports = {
 					header: "hsla(20,27%,85%,0.9)",
 				},
 			},
+			keyframes: {
+				bounce: {
+					"0%, 100%": {
+						transform: "translateX(25%)",
+					},
+					"50%": {
+						transform: "none",
+					},
+				},
+			},
+			animation: {
+				bounce: "bounce 1s infinite ease alternate",
+			},
 		},
 	},
 	plugins: [],

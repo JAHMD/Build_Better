@@ -12,7 +12,7 @@ export const OverlayContext = createContext(null);
 
 function SectionOverlay() {
 	const isDoneSection =
-		useLocation().pathname.split("/").filter(Boolean)[2] === "done";
+		useLocation().pathname.split("/").filter(Boolean)[2] === "completed";
 	const {
 		handleAddTask,
 		handleUpdateTask,

@@ -23,6 +23,7 @@
 
 body {
 	font-family: "Inter", sans-serif;
+	line-height: 1.6;
 }
 
 @layer components {

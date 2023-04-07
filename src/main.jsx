@@ -10,21 +10,20 @@ import App from "./App";
 import "./index.css";
 
 // pages
-import NewTaskForm from "./components/NewTaskForm";
-import TaskContent from "./components/TaskContent";
 import SectionOverlay from "./layouts/SectionLayout";
 import AllTasks from "./pages/AllTasks";
 import Done from "./pages/Done";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="Build_Better/" element={<App />}>
+			<Route index element={<Home />} />
 			<Route path="tasks" element={<SectionOverlay />}>
 				<Route path="all" element={<AllTasks />} />
-				<Route path="done" element={<Done />} />
+				<Route path="completed" element={<Done />} />
 			</Route>
-
 			<Route path="*" element={<NotFound />} />
 		</Route>
 	)
