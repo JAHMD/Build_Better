@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { OverlayContext } from "../pages/AllTasks";
+import { OverlayContext } from "../layouts/SectionLayout";
 
 function NewTaskForm() {
 	const { toggleOverlay, handleAddTask } = useContext(OverlayContext);

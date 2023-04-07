@@ -27,7 +27,7 @@ body {
 
 @layer components {
 	.p-container {
-		@apply px-4 sm:px-6;
+		@apply px-6;
 	}
 
 	.grid-flow {

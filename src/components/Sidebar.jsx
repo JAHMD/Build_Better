@@ -1,31 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // icons
-import { useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import SidebarItems from "./SidebarItems";
 
 function Sidebar() {
-	const [toggleMenue, setToggleMenu] = useState(false);
-	const asideRef = useRef(null);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const headerRef = useRef(null);
 
 	const handleMenuClick = () => {
-		setToggleMenu((oldState) => !oldState);
+		setIsMenuOpen((oldState) => !oldState);
 	};
 
 	useEffect(() => {
 		function closeSidebar({ target }) {
-			if (asideRef.current && !asideRef.current.contains(target)) {
-				setToggleMenu(false);
+			if (headerRef.current && !headerRef.current.contains(target)) {
+				setIsMenuOpen(false);
 			}
 		}
-		document.addEventListener("click", closeSidebar);
+		document.addEventListener("mousedown", closeSidebar);
 		return () => {
-			document.removeEventListener("click", closeSidebar);
+			document.removeEventListener("mousedown", closeSidebar);
 		};
-	}, [asideRef]);
+	}, [headerRef]);
 
 	return (
-		<header ref={asideRef} className="absolute left-6 top-6 z-10">
+		<header ref={headerRef} className="absolute left-6 top-6 z-10">
 			<button
 				className="btn btn-primary text-xl"
 				aria-label="menu button"
@@ -33,8 +32,8 @@ function Sidebar() {
 			>
 				<HiMenu />
 			</button>
-			{toggleMenue && (
-				<nav className="sidebar">
+			{isMenuOpen && (
+				<nav className="sidebar overflow-auto" aria-label="sidebar navigation">
 					<button className="menu-btn mx-6" onClick={handleMenuClick}>
 						<h2>Menu</h2>
 						<HiX />

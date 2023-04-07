@@ -12,11 +12,11 @@ export const sidebarItems = [
 	{
 		id: 1,
 		title: "Tasks",
-		path: "/Build_Better/",
+		path: "tasks",
 		icon: <MdKeyboardArrowDown />,
 		children: [
-			{ id: 1, title: "All", path: "/Build_Better/", icon: <MdAddTask /> },
-			{ id: 2, title: "Done", path: "/Build_Better/done", icon: <MdDoneAll /> },
+			{ id: 1, title: "All", path: "tasks/all", icon: <MdAddTask /> },
+			{ id: 2, title: "Done", path: "tasks/done", icon: <MdDoneAll /> },
 		],
 	},
 	{

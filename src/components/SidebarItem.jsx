@@ -1,16 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-function SidebarItem({ item, children, toggleDropdown, isDropdownOpen }) {
+function SidebarItem({ item, children }) {
 	const { title, icon, path } = item;
 	return (
 		<li>
 			{item.children ? (
-				<h2 className="cursor-pointer menu__link" onClick={toggleDropdown}>
-					{title}
-					<span className={`${isDropdownOpen ? "rotate-180" : ""}`}>
-						{icon}
-					</span>
-				</h2>
+				<h2 className="border-b pb-2">{title}</h2>
 			) : (
 				<NavLink className="menu__link" to={path}>
 					{title} {icon}

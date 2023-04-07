@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { OverlayContext } from "../pages/AllTasks";
+import { OverlayContext } from "../layouts/SectionLayout";
 
 function TaskContent() {
 	const { task, toggleOverlay, handleUpdateTask } = useContext(OverlayContext);
