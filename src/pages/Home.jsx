@@ -17,6 +17,10 @@ function Home() {
 			setIsUser(true);
 			localStorage.setItem("user", true);
 		}
+
+		return () => {
+			localStorage.setItem("user", false);
+		};
 	}, []);
 
 	return (
