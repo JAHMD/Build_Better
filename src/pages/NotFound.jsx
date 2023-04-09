@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function NotFound() {
 	return (
 		<section className="section flex justify-center items-center flex-col">
@@ -6,6 +8,15 @@ function NotFound() {
 				<p className="text-xl sm:text-2xl font-semibold mt-2">
 					Page not found.
 				</p>
+				<div className="">
+					<NavLink to="/Build_Better/" className="link">
+						Home Page
+					</NavLink>
+					&nbsp;
+					<NavLink to="/Build_Better/tasks" className="link">
+						Tasks Page
+					</NavLink>
+				</div>
 			</div>
 		</section>
 	);

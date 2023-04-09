@@ -71,6 +71,10 @@ body {
 	.menu-btn {
 		@apply flex items-center justify-between border-b cursor-pointer pb-2 hover:text-primary-brown-200 hover:border-b-primary-brown-200 transition-colors;
 	}
+
+	.link {
+		@apply underline font-semibold text-xs sm:text-sm;
+	}
 	.menu__link.active {
 		@apply text-primary-brown-200 border-b-primary-brown-200;
 	}
