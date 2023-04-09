@@ -13,7 +13,7 @@ function NotFound() {
 						Home Page
 					</NavLink>
 					&nbsp;
-					<NavLink to="/Build_Better/tasks" className="link">
+					<NavLink to="/Build_Better/tasks/all" className="link">
 						Tasks Page
 					</NavLink>
 				</div>

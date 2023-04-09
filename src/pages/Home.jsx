@@ -8,8 +8,6 @@ function Home() {
 		return JSON.parse(localStorage.getItem("user")) || false;
 	});
 
-	console.log(JSON.parse(localStorage.getItem("user")), isUser);
-
 	useEffect(() => {
 		if (isUser) {
 			navigate("tasks/all");

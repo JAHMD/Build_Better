@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { OverlayContext } from "../layouts/TasksLayout";
+import { OverlayContext } from "../../layouts/TasksLayout";
 
 function NewTaskForm() {
 	const { toggleOverlay, handleAddTask } = useContext(OverlayContext);
@@ -51,7 +51,7 @@ function NewTaskForm() {
 			<label htmlFor="task-input">Task:</label>
 			<input
 				ref={inputRef}
-				className="rounded-lg py-2 px-4 outline-transparent"
+				className="rounded-lg py-2 px-4"
 				type="text"
 				id="task-input"
 				value={newTask.body}

@@ -1,8 +1,8 @@
 import { createContext, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import NewTaskForm from "../components/NewTaskForm";
 import Overlay from "../components/Overlay";
-import TaskContent from "../components/TaskContent";
+import NewTaskForm from "../components/tasks/NewTaskForm";
+import TaskContent from "../components/tasks/TaskContent";
 import { useCardsFunctions } from "../hooks/useCardsFunctions";
 import useCompletedTask from "../hooks/useCompletedTask";
 import useHandleOverlay from "../hooks/useHandleOverlay";
@@ -46,6 +46,9 @@ function TasksLayout() {
 					</Overlay>
 				)}
 				<SectionHeader>
+					<h2 className="section__heading">
+						{isDoneSection ? "Completed" : "Todo"}
+					</h2>
 					{!isDoneSection && (
 						<button
 							className="btn btn-primary px-6"
@@ -55,9 +58,6 @@ function TasksLayout() {
 							New task
 						</button>
 					)}
-					<h2 className="section__heading">
-						{isDoneSection ? "Completed" : "Todo"}
-					</h2>
 				</SectionHeader>
 				<Outlet />
 			</OverlayContext.Provider>

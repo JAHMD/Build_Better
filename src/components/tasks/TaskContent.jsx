@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { OverlayContext } from "../layouts/TasksLayout";
+import { OverlayContext } from "../../layouts/TasksLayout";
 
 function TaskContent() {
 	const { task, toggleOverlay, handleUpdateTask } = useContext(OverlayContext);
@@ -18,7 +18,7 @@ function TaskContent() {
 			return;
 		}
 		setIsEditable(false);
-		handleUpdateTask({ ...task, body: editedText });
+		handleUpdateTask({ ...task, body: editedText, isDone: false });
 		toggleOverlay(e);
 	}
 

@@ -14,6 +14,7 @@ import TasksLayout from "./layouts/TasksLayout";
 import AllTasks from "./pages/AllTasks";
 import Completed from "./pages/Completed";
 import Home from "./pages/Home";
+import Notes from "./pages/Notes";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
 				<Route path="all" element={<AllTasks />} />
 				<Route path="completed" element={<Completed />} />
 			</Route>
+			<Route path="notes" element={<Notes />}></Route>
 			<Route path="*" element={<NotFound />} />
 		</Route>
 	)

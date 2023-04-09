@@ -1,11 +1,11 @@
 import { useContext, useMemo } from "react";
-import Task from "../components/Task";
+import Task from "../components/tasks/Task";
 import { OverlayContext } from "../layouts/TasksLayout";
 
 function Completed() {
 	const { toggleOverlay, handleDeleteTask, handleCompletedTasks } =
 		useContext(OverlayContext);
-	const tasks = useMemo(() => JSON.parse(localStorage.getItem("tasks")));
+	const tasks = useMemo(() => JSON.parse(localStorage.getItem("tasks")) || []);
 
 	const completedTasksElements = tasks.map((task) => {
 		if (task.isDone) {
