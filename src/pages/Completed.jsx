@@ -1,8 +1,8 @@
 import { useContext, useMemo } from "react";
-import Card from "../components/Card";
-import { OverlayContext } from "../layouts/SectionLayout";
+import Task from "../components/Task";
+import { OverlayContext } from "../layouts/TasksLayout";
 
-function Done() {
+function Completed() {
 	const { toggleOverlay, handleDeleteTask, handleCompletedTasks } =
 		useContext(OverlayContext);
 	const tasks = useMemo(() => JSON.parse(localStorage.getItem("tasks")));
@@ -10,7 +10,7 @@ function Done() {
 	const completedTasksElements = tasks.map((task) => {
 		if (task.isDone) {
 			return (
-				<Card
+				<Task
 					key={task.id}
 					task={task}
 					deleteTask={handleDeleteTask}
@@ -24,4 +24,4 @@ function Done() {
 	return <div className="cards-container">{completedTasksElements}</div>;
 }
 
-export default Done;
+export default Completed;

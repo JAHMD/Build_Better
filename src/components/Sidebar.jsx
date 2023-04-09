@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 // icons
 import { HiMenu, HiX } from "react-icons/hi";
 import SidebarItems from "./SidebarItems";
+
+export const SidebarContext = createContext(null);
 
 function Sidebar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +40,9 @@ function Sidebar() {
 						<h2>Menu</h2>
 						<HiX />
 					</button>
-					<SidebarItems />
+					<SidebarContext.Provider value={handleMenuClick}>
+						<SidebarItems />
+					</SidebarContext.Provider>
 				</nav>
 			)}
 		</header>

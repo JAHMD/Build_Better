@@ -1,18 +1,27 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { SidebarContext } from "./Sidebar";
 
 function SidebarItem({ item, children }) {
+	const handleMenuClick = useContext(SidebarContext);
 	const { title, icon, path } = item;
 	return (
-		<li>
+		<>
 			{item.children ? (
-				<h2 className="border-b pb-2">{title}</h2>
+				<li>
+					<>
+						<h2 className="border-b pb-2">{title}</h2>
+						{children}
+					</>
+				</li>
 			) : (
-				<NavLink className="menu__link" to={path}>
-					{title} {icon}
-				</NavLink>
+				<li onClick={handleMenuClick}>
+					<NavLink className="menu__link" to={path}>
+						{title} <span>{icon}</span>
+					</NavLink>
+				</li>
 			)}
-			{children}
-		</li>
+		</>
 	);
 }
 

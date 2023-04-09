@@ -1,6 +1,6 @@
 import { useContext, useMemo } from "react";
-import Card from "../components/Card";
-import { OverlayContext } from "../layouts/SectionLayout";
+import Task from "../components/Task";
+import { OverlayContext } from "../layouts/TasksLayout";
 
 function AllTasks() {
 	const { toggleOverlay, handleDeleteTask, handleCompletedTasks } =
@@ -12,7 +12,7 @@ function AllTasks() {
 			tasks.map((task) => {
 				if (!task.isDone) {
 					return (
-						<Card
+						<Task
 							key={task.id}
 							task={task}
 							deleteTask={handleDeleteTask}

@@ -1,11 +1,11 @@
 import { MdDelete } from "react-icons/md";
 
-function Card({ task, deleteTask, toggleOverlay, handleCompletedTasks }) {
+function Task({ task, deleteTask, toggleOverlay, handleCompletedTasks }) {
 	return (
 		<article className="card">
 			<div className="flex justify-between items-center gap-2">
 				<p
-					className="task-content"
+					className={`task-content ${task.isDone ? "line-through" : ""}`}
 					id="card"
 					onClick={(e) => toggleOverlay(e, task)}
 				>
@@ -31,4 +31,4 @@ function Card({ task, deleteTask, toggleOverlay, handleCompletedTasks }) {
 	);
 }
 
-export default Card;
+export default Task;

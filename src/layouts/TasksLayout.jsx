@@ -6,11 +6,11 @@ import TaskContent from "../components/TaskContent";
 import { useCardsFunctions } from "../hooks/useCardsFunctions";
 import useCompletedTask from "../hooks/useCompletedTask";
 import useHandleOverlay from "../hooks/useHandleOverlay";
-import SectionHeader from "../layouts/SectionHeader";
+import SectionHeader from "./SectionHeader";
 
 export const OverlayContext = createContext(null);
 
-function SectionOverlay() {
+function TasksLayout() {
 	const isDoneSection =
 		useLocation().pathname.split("/").filter(Boolean)[2] === "completed";
 	const {
@@ -56,7 +56,7 @@ function SectionOverlay() {
 						</button>
 					)}
 					<h2 className="section__heading">
-						{isDoneSection ? "Done" : "Todo"}
+						{isDoneSection ? "Completed" : "Todo"}
 					</h2>
 				</SectionHeader>
 				<Outlet />
@@ -65,4 +65,4 @@ function SectionOverlay() {
 	);
 }
 
-export default SectionOverlay;
+export default TasksLayout;

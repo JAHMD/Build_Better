@@ -61,7 +61,7 @@ body {
 	}
 
 	.section__heading {
-		@apply text-2xl font-bold text-primary-black-100;
+		@apply text-2xl font-bold text-primary-black-100 ml-auto;
 	}
 	.cards-container {
 		@apply h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 drop-shadow-md rounded-lg;
