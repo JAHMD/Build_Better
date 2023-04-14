@@ -16,6 +16,7 @@ import Completed from "./pages/Completed";
 import Home from "./pages/Home";
 import Notes from "./pages/Notes";
 import NotFound from "./pages/NotFound";
+import Pomodoro from "./pages/Pomodoro";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -25,7 +26,8 @@ const router = createBrowserRouter(
 				<Route path="all" element={<AllTasks />} />
 				<Route path="completed" element={<Completed />} />
 			</Route>
-			<Route path="notes" element={<Notes />}></Route>
+			<Route path="notes" element={<Notes />} />
+			<Route path="pomodoro" element={<Pomodoro />} />
 			<Route path="*" element={<NotFound />} />
 		</Route>
 	)

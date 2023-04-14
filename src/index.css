@@ -21,6 +21,11 @@
 	box-sizing: border-box;
 }
 
+input,
+textarea {
+	background-color: hsl(44, 21%, 96%);
+}
+
 body {
 	font-family: "Inter", sans-serif;
 	line-height: 1.6;
@@ -63,10 +68,10 @@ body {
 	}
 
 	.card {
-		@apply p-4 rounded-lg bg-primary-brown-100 flex flex-col gap-4;
+		@apply p-4 rounded-lg bg-primary-brown-100 flex flex-col gap-3;
 	}
 	.card .task-content {
-		@apply truncate cursor-pointer hover:bg-primary-brown-200-30 w-full py-1 px-2 rounded-lg transition-colors;
+		@apply truncate cursor-pointer hover:bg-primary-brown-200-30 w-full py-1 px-2 rounded-lg transition-colors text-primary-black-200;
 	}
 
 	.form {
@@ -86,7 +91,10 @@ body {
 
 	/* notes */
 
+	.note-title {
+		@apply font-bold text-xl;
+	}
 	.note-content {
-		@apply cursor-pointer hover:bg-primary-brown-200-30 w-full py-1 px-2 rounded-lg transition-colors relative overflow-hidden;
+		@apply cursor-pointer hover:bg-primary-brown-200-30 w-full rounded-lg transition-colors relative overflow-hidden mb-auto;
 	}
 }
