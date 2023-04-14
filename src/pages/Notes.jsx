@@ -25,7 +25,10 @@ function Notes() {
 		const inputValue = target.value;
 
 		if (feild === "note-title") {
-			setNote((oldNote) => ({ ...oldNote, title: inputValue }));
+			setNote((oldNote) => ({
+				...oldNote,
+				title: inputValue,
+			}));
 		} else {
 			setNote((oldNote) => ({ ...oldNote, note: inputValue }));
 		}
@@ -76,7 +79,6 @@ function Notes() {
 							note,
 							handleSubmitNote,
 							handleOverlay,
-							handleNoteChange,
 							handleNoteChange,
 						}}
 					>
