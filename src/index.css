@@ -106,8 +106,4 @@ body {
 	.btns-container {
 		@apply flex items-center justify-center gap-6;
 	}
-
-	.pomo-btn-primary {
-		@apply hover:bg-primary-pomodoro-100 text-primary-pomodoro-300 hover:text-primary-brown-95 bg-primary-brown-95 shadow-lg font-semibold;
-	}
 }

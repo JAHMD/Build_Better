@@ -21,9 +21,7 @@ module.exports = {
 					"brown-200": "hsl(27, 28%, 50%)",
 					"brown-200-30": "hsla(27, 28%, 50%, 0.3)",
 					header: "hsla(20,27%,85%,0.9)",
-					"pomodoro-300": "hsl(0, 45%, 50%)",
-					"pomodoro-200": "hsl(0, 55%, 60%)",
-					"pomodoro-100": "hsl(0, 55%, 70%)",
+					"pomodoro-300": "#ef624a",
 				},
 			},
 			keyframes: {
