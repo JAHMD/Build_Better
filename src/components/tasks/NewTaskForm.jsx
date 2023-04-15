@@ -39,15 +39,19 @@ function NewTaskForm() {
 
 	return (
 		<form className="form" onSubmit={handleTaskSubmit}>
-			<button
-				ref={closeBtnRef}
-				type="button"
-				className="absolute top-5 right-5 text-2xl"
-				id="new-task"
-				onClick={toggleOverlay}
-			>
-				<MdClose />
-			</button>
+			<div className="flex justify-between items-center pb-2 border-b-2 border-primary-black-100/90">
+				<p className="font-bold text-xl">Add new task</p>
+				<button
+					ref={closeBtnRef}
+					type="button"
+					className="text-2xl"
+					id="new-task"
+					onClick={toggleOverlay}
+				>
+					<MdClose />
+				</button>
+			</div>
+
 			<label htmlFor="task-input">Task:</label>
 			<input
 				ref={inputRef}

@@ -7,13 +7,16 @@
 /* font-family: 'Imperial Script', cursive; */
 :root {
 	--p-black-50: hsl(175, 7%, 33%);
-	--p-black-100: hsl(184, 11%, 28%);
+	--p-black-100: hsl(184, 11%, 33%);
 	--p-black-200: hsl(194, 13%, 20%);
 	--p-black-200-50: hsla(193, 14%, 20%, 0.5);
 	--p-brown-100: hsl(44, 21%, 90%);
 	--p-brown-100-90: hsl(44, 21%, 90%, 0.9);
 	--p-brown-200: hsl(27, 28%, 50%);
 	--p-brown-200-30: hsla(27, 28%, 50%, 0.3);
+	--pomodoro-300: hsl(0, 45%, 50%, 0.9);
+	--pomodoro-200: hsl(0, 45%, 56%);
+	--pomodoro-100: hsl(0, 55%, 80%);
 }
 
 * {
@@ -61,8 +64,9 @@ body {
 		@apply p-1.5 rounded-md transition-colors;
 	}
 	.btn-primary {
-		@apply hover:bg-primary-black-100/90 text-primary-brown-100 bg-primary-black-100 shadow-lg font-semibold;
+		@apply hover:bg-primary-black-50 text-primary-brown-100 bg-primary-black-100 shadow-lg font-semibold;
 	}
+
 	.btn.disabled {
 		@apply cursor-not-allowed bg-primary-black-100/80 hover:bg-primary-black-100/80;
 	}
@@ -96,5 +100,14 @@ body {
 	}
 	.note-content {
 		@apply cursor-pointer hover:bg-primary-brown-200-30 w-full rounded-lg transition-colors relative overflow-hidden mb-auto;
+	}
+
+	/* pomodoro */
+	.btns-container {
+		@apply flex items-center justify-center gap-6;
+	}
+
+	.pomo-btn-primary {
+		@apply hover:bg-primary-pomodoro-100 text-primary-pomodoro-300 hover:text-primary-brown-95 bg-primary-brown-95 shadow-lg font-semibold;
 	}
 }

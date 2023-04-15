@@ -45,12 +45,6 @@ export const sidebarItems = [
 	},
 	{
 		id: 4,
-		title: "Calculator",
-		path: "calculator",
-		icon: <MdOutlineCalculate />,
-	},
-	{
-		id: 5,
 		title: "Settings",
 		path: "settings",
 		icon: <MdSettings />,
