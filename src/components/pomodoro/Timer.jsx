@@ -22,6 +22,10 @@ function Timer() {
 		return () => clearInterval(intervalId.current);
 	}, [time]);
 
+	useEffect(() => {
+		handleWorkTime();
+	}, []);
+
 	function handleTimer() {
 		const { dispMinutes, dispSeconds } = setTimerDisplayValue(time);
 		setDisplayTime(`${dispMinutes}:${dispSeconds}`);
