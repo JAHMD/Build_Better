@@ -68,7 +68,7 @@ body {
 	}
 
 	.btn.disabled {
-		@apply cursor-not-allowed bg-primary-black-100/80 hover:bg-primary-black-100/80;
+		@apply cursor-not-allowed pointer-events-none bg-primary-black-100/80 hover:bg-primary-black-100/80;
 	}
 
 	.card {
