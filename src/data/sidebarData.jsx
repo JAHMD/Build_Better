@@ -43,10 +43,4 @@ export const sidebarItems = [
 		path: "pomodoro",
 		icon: <MdMoreTime />,
 	},
-	{
-		id: 4,
-		title: "Settings",
-		path: "settings",
-		icon: <MdSettings />,
-	},
 ];

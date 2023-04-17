@@ -40,7 +40,7 @@ function NewTaskForm() {
 	return (
 		<form className="form" onSubmit={handleTaskSubmit}>
 			<div className="flex justify-between items-center pb-2 border-b-2 border-primary-black-100/90">
-				<p className="font-bold text-xl">Add new task</p>
+				<p className="font-semibold text-xl">Add new task</p>
 				<button
 					ref={closeBtnRef}
 					type="button"

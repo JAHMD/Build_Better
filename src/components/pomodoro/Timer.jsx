@@ -14,8 +14,6 @@ function Timer() {
 	const audioRef = useRef(null);
 	const puaseRef = useRef(null);
 
-	console.log("first");
-
 	useEffect(() => {
 		handleTimer();
 

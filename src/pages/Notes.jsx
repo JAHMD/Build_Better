@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { createContext, useState } from "react";
+import { createPortal } from "react-dom";
 import Overlay from "../components/Overlay";
 import Note from "../components/notes/Note";
 import NoteForm from "../components/notes/NoteForm";
@@ -72,20 +73,22 @@ function Notes() {
 
 	return (
 		<section className="section">
-			{hasOverlay && (
-				<Overlay>
-					<FromContext.Provider
-						value={{
-							note,
-							handleSubmitNote,
-							handleOverlay,
-							handleNoteChange,
-						}}
-					>
-						<NoteForm />
-					</FromContext.Provider>
-				</Overlay>
-			)}
+			{hasOverlay &&
+				createPortal(
+					<Overlay>
+						<FromContext.Provider
+							value={{
+								note,
+								handleSubmitNote,
+								handleOverlay,
+								handleNoteChange,
+							}}
+						>
+							<NoteForm />
+						</FromContext.Provider>
+					</Overlay>,
+					document.body
+				)}
 			<SectionHeader>
 				<h2 className="section__heading">Notes</h2>
 				<button className="btn btn-primary px-6" onClick={handleOverlay}>

@@ -1,4 +1,5 @@
 import { createContext, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Outlet, useLocation } from "react-router-dom";
 import Overlay from "../components/Overlay";
 import NewTaskForm from "../components/tasks/NewTaskForm";
@@ -39,12 +40,14 @@ function TasksLayout() {
 					task: clickedTaskRef.current,
 				}}
 			>
-				{isToggleOverlay && (
-					<Overlay>
-						{isTaskForm && <NewTaskForm />}
-						{isTaskCard && <TaskContent />}
-					</Overlay>
-				)}
+				{isToggleOverlay &&
+					createPortal(
+						<Overlay>
+							{isTaskForm && <NewTaskForm />}
+							{isTaskCard && <TaskContent />}
+						</Overlay>,
+						document.body
+					)}
 				<SectionHeader>
 					<h2 className="section__heading">
 						{isDoneSection ? "Completed" : "Todo"}

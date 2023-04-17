@@ -79,7 +79,7 @@ body {
 	}
 
 	.form {
-		@apply flex flex-col gap-3 px-5 py-6 relative w-80 max-w-full rounded-lg bg-primary-brown-100;
+		@apply flex flex-col gap-3 px-5 py-6 relative w-80 max-w-full rounded-lg bg-primary-brown-100 text-primary-black-100;
 	}
 
 	.section {
