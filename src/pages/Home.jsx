@@ -1,26 +1,7 @@
-import { useEffect, useState } from "react";
 import { MdArrowRightAlt } from "react-icons/md";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Home() {
-	const navigate = useNavigate();
-	const [isUser, setIsUser] = useState(() => {
-		return JSON.parse(localStorage.getItem("user")) || false;
-	});
-
-	useEffect(() => {
-		if (isUser) {
-			navigate("tasks/all");
-		} else {
-			setIsUser(true);
-			localStorage.setItem("user", true);
-		}
-
-		return () => {
-			localStorage.setItem("user", false);
-		};
-	}, []);
-
 	return (
 		<section className="rounded-lg h-full p-6 md:p-8 bg-primary-brown-200-30 shadow-md">
 			<div className="h-full rounded-lg p-4 flex flex-col justify-center items-center gap-4 bg-primary-brown-100-90 text-center">
