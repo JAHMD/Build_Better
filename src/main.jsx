@@ -20,7 +20,7 @@ import Pomodoro from "./pages/Pomodoro";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="Build_Better/" element={<App />}>
+		<Route path="/Build_Better/" element={<App />}>
 			<Route index element={<Home />} />
 			<Route path="tasks" element={<TasksLayout />}>
 				<Route path="all" element={<AllTasks />} />
