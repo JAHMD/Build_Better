@@ -5,8 +5,6 @@ import {
 	MdHome,
 	MdKeyboardArrowDown,
 	MdMoreTime,
-	MdOutlineCalculate,
-	MdSettings,
 } from "react-icons/md";
 
 export const sidebarItems = [
@@ -19,7 +17,6 @@ export const sidebarItems = [
 	{
 		id: 1,
 		title: "Tasks",
-		path: "tasks",
 		icon: <MdKeyboardArrowDown />,
 		children: [
 			{ id: 1, title: "All", path: "tasks/all", icon: <MdAddTask /> },

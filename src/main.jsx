@@ -22,9 +22,9 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/Build_Better/" element={<App />}>
 			<Route index element={<Home />} />
-			<Route path="tasks" element={<TasksLayout />}>
-				<Route path="all" element={<AllTasks />} />
-				<Route path="completed" element={<Completed />} />
+			<Route element={<TasksLayout />}>
+				<Route path="tasks/all" element={<AllTasks />} />
+				<Route path="tasks/completed" element={<Completed />} />
 			</Route>
 			<Route path="notes" element={<Notes />} />
 			<Route path="pomodoro" element={<Pomodoro />} />
